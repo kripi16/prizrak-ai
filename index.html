@@ -57,90 +57,90 @@ h1{font-size:clamp(28px,4vw,42px);line-height:1.12;margin:0 0 12px;letter-spacin
 <body>
 <div class="app">
 <aside class="sidebar" id="sidebar">
-  <div>
-    <div class="brand"><div class="logo">👻</div><span>ПРИЗРАК AI</span></div>
-    <div class="tagline">твой ИИ. твои правила.</div>
-  </div>
+  <div><div class="brand"><div class="logo">👻</div><span>ПРИЗРАК AI</span></div><div class="tagline">твой ИИ. твои правила.</div></div>
   <button class="newchat" id="newChat">＋ Новый чат</button>
   <div class="sectionlabel">История</div>
   <div class="chatlist" id="chatlist"><div class="empty">Пока нет чатов</div></div>
   <div class="sidebarbottom">
     <button class="chatitem" id="settingsBtn">⚙️ Настройки ИИ</button>
-    <div class="note">👻 <b>Призрак</b><br>Дружелюбный помощник с характером. Подключи ИИ-модель в настройках, чтобы получать настоящие ответы.</div>
+    <div class="note">👻 <b>Призрак</b><br>Дружелюбный помощник с характером. Ответы обрабатываются сервером сайта; секретный API-ключ не нужен в браузере.</div>
   </div>
 </aside>
 <main class="main">
-  <header class="topbar">
-    <button class="mobilemenu" id="menuBtn" aria-label="Открыть меню">☰</button>
-    <div class="topname">Призрак <span style="color:var(--muted);font-weight:400">/ чат</span></div>
-    <div class="status"><span class="dot"></span><span id="statusText">готов к общению</span></div>
-  </header>
+  <header class="topbar"><button class="mobilemenu" id="menuBtn" aria-label="Открыть меню">☰</button><div class="topname">Призрак <span style="color:var(--muted);font-weight:400">/ чат</span></div><div class="status"><span class="dot"></span><span id="statusText">готов к общению</span></div></header>
   <section class="messages" id="messages">
-    <div class="welcome" id="welcome">
-      <div class="bigghost">👻</div>
-      <h1>Йо, я <span class="gradient">Призрак.</span></h1>
-      <p class="sub">Твой личный ИИ-помощник. Могу помочь разобраться, придумать что-то безумное или просто поболтать.</p>
-      <div class="suggestions">
-        <button class="suggestion" data-prompt="Придумай тупую и смешную историю про голубя и пельмешек"><b>🕊️ Придумать угар</b><span>Истории, мемы и абсурд</span></button>
-        <button class="suggestion" data-prompt="Помоги мне разобраться с одной сложной задачей"><b>🧠 Разобраться</b><span>Объясни простыми словами</span></button>
-        <button class="suggestion" data-prompt="Предложи крутой проект, который я могу сделать сам"><b>🚀 Новый проект</b><span>Идеи и план действий</span></button>
-        <button class="suggestion" data-prompt="Давай просто поболтаем. Задай интересный вопрос"><b>💬 Поболтать</b><span>Без официоза и скуки</span></button>
-      </div>
-    </div>
-    <div class="thread" id="thread"></div>
+    <div class="welcome" id="welcome"><div class="bigghost">👻</div><h1>Йо, я <span class="gradient">Призрак.</span></h1><p class="sub">Твой личный ИИ-помощник. Могу помочь разобраться, придумать что-то безумное или просто поболтать.</p><div class="suggestions">
+      <button class="suggestion" data-prompt="Придумай тупую и смешную историю про голубя и пельмешек"><b>🕊️ Придумать угар</b><span>Истории, мемы и абсурд</span></button>
+      <button class="suggestion" data-prompt="Помоги мне разобраться с одной сложной задачей"><b>🧠 Разобраться</b><span>Объясни простыми словами</span></button>
+      <button class="suggestion" data-prompt="Предложи крутой проект, который я могу сделать сам"><b>🚀 Новый проект</b><span>Идеи и план действий</span></button>
+      <button class="suggestion" data-prompt="Давай просто поболтаем. Задай интересный вопрос"><b>💬 Поболтать</b><span>Без официоза и скуки</span></button>
+    </div></div><div class="thread" id="thread"></div>
   </section>
-  <div class="composer-wrap">
-    <div class="composer">
-      <textarea id="prompt" rows="1" placeholder="Напиши Призраку..." aria-label="Сообщение"></textarea>
-      <div class="composerrow"><span class="hint">Enter — отправить · Shift + Enter — новая строка</span><button class="send" id="sendBtn" aria-label="Отправить">↑</button></div>
-    </div>
-    <div class="footnote">Призрак AI — демо-интерфейс. Для настоящих ответов подключи API в настройках.</div>
-  </div>
-</main>
-</div>
-<div class="settings" id="settings">
-  <div class="modal">
-    <h2>⚙️ Настройки Призрака</h2>
-    <p>После публикации сайта серверный маршрут /api/chat подключает Gemini. API-ключ (оставь пустым для встроенного сервера) хранится в настройках хостинга, а не в браузере. Если ты используешь этот серверный вариант, оставь API URL и ключ пустыми.</p>
-    <label for="endpoint">API URL (оставь пустым для встроенного сервера)</label>
-    <input id="endpoint" placeholder="https://твой-сервис/v1/chat/completions">
-    <label for="model">Название модели</label>
-    <input id="model" placeholder="название-модели">
-    <label for="apiKey">API-ключ (оставь пустым для встроенного сервера)</label>
-    <input id="apiKey" type="password" placeholder="Вставь ключ (если нужен)">
-    <label for="persona">Характер Призрака</label>
-    <input id="persona" placeholder="Дружелюбный, с юмором, говорит по-русски">
-    <div class="modalactions"><button class="secondary" id="closeSettings">Закрыть</button><button class="primary" id="saveSettings">Сохранить</button></div>
-  </div>
-</div>
+  <div class="composer-wrap"><div class="composer"><textarea id="prompt" rows="1" placeholder="Напиши Призраку..." aria-label="Сообщение"></textarea><div class="composerrow"><span class="hint">Enter — отправить · Shift + Enter — новая строка</span><button class="send" id="sendBtn" aria-label="Отправить">↑</button></div></div><div class="footnote">Призрак AI — ответы генерируются подключённой моделью через сервер.</div></div>
+</main></div>
+<div class="settings" id="settings"><div class="modal"><h2>⚙️ Настройки Призрака</h2><p>Модель задаётся на сервере через переменную OPENROUTER_MODEL в Vercel. API-ключ хранится только в переменных окружения Vercel. Не вводи секретный ключ в браузере.</p>
+<label for="model">Название модели (информационно)</label><input id="model" placeholder="Например, openrouter/free">
+<label for="persona">Характер Призрака</label><input id="persona" placeholder="Дружелюбный, с юмором, говорит по-русски">
+<div class="modalactions"><button class="secondary" id="closeSettings">Закрыть</button><button class="primary" id="saveSettings">Сохранить</button></div></div></div>
 <script>
+'use strict';
 const $=s=>document.querySelector(s);
-const messagesEl=$('#messages'), thread=$('#thread'), welcome=$('#welcome'), promptEl=$('#prompt');
-let chats=[], currentId=null, busy=false;
-const defaultSettings={endpoint:'',model:'',apiKey:'',persona:'Дружелюбный, с юмором, говорит по-русски. Зовут Призрак. Отвечай естественно, без лишнего официоза.'};
-let settings={...defaultSettings,...JSON.parse(localStorage.getItem('ghostSettings')||'{}')};
-function saveLocal(){localStorage.setItem('ghostChats',JSON.stringify(chats));}
-function newChat(){const c={id:Date.now().toString(),title:'Новый чат',messages:[]};chats.unshift(c);currentId=c.id;saveLocal();renderAll();$('#sidebar').classList.remove('open');promptEl.focus();}
+const messagesEl=$('#messages'),thread=$('#thread'),welcome=$('#welcome'),promptEl=$('#prompt');
+let chats=[],currentId=null,busy=false;
+const defaultSettings={model:'',persona:'Дружелюбный, с юмором, говорит по-русски. Зовут Призрак. Отвечай естественно, без лишнего официоза.'};
+function readSettings(){try{return {...defaultSettings,...JSON.parse(localStorage.getItem('ghostSettings')||'{}')}}catch{return {...defaultSettings}}}
+let settings=readSettings();
+function saveLocal(){try{localStorage.setItem('ghostChats',JSON.stringify(chats))}catch{}}
+function newChat(){const c={id:(Date.now()+Math.random()).toString(36),title:'Новый чат',messages:[]};chats.unshift(c);currentId=c.id;saveLocal();renderAll();$('#sidebar').classList.remove('open');promptEl.focus()}
 function current(){return chats.find(c=>c.id===currentId)}
-function renderList(){const el=$('#chatlist');el.innerHTML='';if(!chats.length){el.innerHTML='<div class="empty">Пока нет чатов</div>';return}chats.forEach(c=>{const b=document.createElement('button');b.className='chatitem'+(c.id===currentId?' active':'');b.textContent='▸ '+c.title;b.title=c.title;b.onclick=()=>{currentId=c.id;renderAll();$('#sidebar').classList.remove('open')};el.appendChild(b)})}
-function renderAll(){renderList();thread.innerHTML='';const c=current();welcome.style.display=c&&c.messages.length?'none':'block';if(!c||!c.messages.length)return;c.messages.forEach(m=>appendMessage(m.role,m.content,false));scrollBottom()}
+function renderList(){const el=$('#chatlist');el.replaceChildren();if(!chats.length){const empty=document.createElement('div');empty.className='empty';empty.textContent='Пока нет чатов';el.appendChild(empty);return}chats.forEach(c=>{const b=document.createElement('button');b.className='chatitem'+(c.id===currentId?' active':'');b.textContent='▸ '+c.title;b.title=c.title;b.onclick=()=>{currentId=c.id;renderAll();$('#sidebar').classList.remove('open')};el.appendChild(b)})}
+function renderAll(){renderList();thread.replaceChildren();const c=current();welcome.style.display=c&&c.messages.length?'none':'block';if(!c||!c.messages.length)return;c.messages.forEach(m=>appendMessage(m.role,m.content,false));scrollBottom()}
 function appendMessage(role,content,scroll=true){const row=document.createElement('div');row.className='message '+(role==='user'?'user':'assistant');const av=document.createElement('div');av.className='avatar';av.textContent=role==='user'?'🙂':'👻';const body=document.createElement('div');body.className='bubble';const who=document.createElement('div');who.className='who';who.textContent=role==='user'?'Ты':'Призрак';const p=document.createElement('p');p.textContent=content;body.append(who,p);row.append(av,body);thread.appendChild(row);if(scroll)scrollBottom();return p}
 function scrollBottom(){messagesEl.scrollTop=messagesEl.scrollHeight}
 function resize(){promptEl.style.height='auto';promptEl.style.height=Math.min(promptEl.scrollHeight,180)+'px'}
-async function send(text){text=(text??promptEl.value).trim();if(!text||busy)return;if(!current())newChat();const c=current();if(!c)return;welcome.style.display='none';c.messages.push({role:'user',content:text});if(c.messages.length===1)c.title=text.slice(0,32)+(text.length>32?'…':'');appendMessage('user',text);promptEl.value='';resize();saveLocal();renderList();busy=true;$('#sendBtn').disabled=true;$('#statusText').textContent='думаю…';const waiting=appendMessage('assistant','Призрак думает…');waiting.className='typing';
-try{let answer;const endpoint=settings.endpoint||'/api/chat';const headers={'Content-Type':'application/json'};if(settings.endpoint&&settings.apiKey)headers.Authorization='Bearer '+settings.apiKey;const response=await fetch(endpoint,{method:'POST',headers,body:JSON.stringify({model:settings.model||undefined,messages:[{role:'system',content:settings.persona||defaultSettings.persona},...c.messages],temperature:0.8})});if(!response.ok){let detail='';try{detail=(await response.json()).error||''}catch{}throw new Error(detail||('Сервер вернул ошибку '+response.status+'.'));}const data=await response.json();answer=data.choices?.[0]?.message?.content||data.output_text||'Модель вернула пустой ответ.';}
-catch(e){answer='Не получилось получить ответ от ИИ: '+e.message+'\n\nПроверь API URL, название модели, ключ и разрешение CORS у сервиса.'}
-waiting.parentElement.remove();c.messages.push({role:'assistant',content:answer});appendMessage('assistant',answer);saveLocal()
-finally{busy=false;$('#sendBtn').disabled=false;$('#statusText').textContent='готов к общению'}}
-$('#sendBtn').onclick=()=>send();promptEl.addEventListener('input',resize);promptEl.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
+function friendlyError(message,status){if(status===401||status===403)return 'OpenRouter отклонил запрос. Проверь API-ключ и доступ к модели в настройках Vercel.';if(status===429)return 'Слишком много запросов или закончился доступный лимит модели. Попробуй позже или выбери другую модель.';if(status>=500)return message||'Ошибка сервера. Проверь настройки OpenRouter в Vercel.';return message||'Не удалось выполнить запрос.'}
+async function send(text){
+  const value=(typeof text==='string'?text:promptEl.value).trim();
+  if(!value||busy)return;
+  if(!current())newChat();
+  const c=current();if(!c)return;
+  welcome.style.display='none';
+  c.messages.push({role:'user',content:value});
+  if(c.messages.length===1)c.title=value.slice(0,32)+(value.length>32?'…':'');
+  appendMessage('user',value);promptEl.value='';resize();saveLocal();renderList();
+  busy=true;$('#sendBtn').disabled=true;$('#statusText').textContent='думаю…';
+  const waiting=appendMessage('assistant','Призрак думает…');waiting.className='typing';
+  let answer='Не удалось получить ответ. Попробуй ещё раз.';
+  try{
+    const payloadMessages=[{role:'system',content:settings.persona||defaultSettings.persona},...c.messages];
+    const response=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({messages:payloadMessages})});
+    let data={};
+    try{data=await response.json()}catch{throw new Error('Сервер вернул ответ, который не удалось прочитать.')}
+    if(!response.ok)throw new Error(friendlyError(data.error,response.status));
+    answer=typeof data.reply==='string'&&data.reply.trim()?data.reply.trim():
+      typeof data.choices?.[0]?.message?.content==='string'?data.choices[0].message.content.trim():
+      typeof data.output_text==='string'?data.output_text.trim():'Модель вернула пустой ответ.';
+    if(!answer)answer='Модель вернула пустой ответ.';
+  }catch(e){
+    answer='Не получилось получить ответ от ИИ: '+(e&&e.message?e.message:'проверь подключение к интернету');
+  }finally{
+    if(waiting.parentElement)waiting.parentElement.remove();
+    c.messages.push({role:'assistant',content:answer});saveLocal();appendMessage('assistant',answer);
+    busy=false;$('#sendBtn').disabled=false;$('#statusText').textContent=answer.startsWith('Не получилось получить ответ')?'ошибка подключения':'готов к общению';
+  }
+}
+$('#sendBtn').onclick=()=>send();
+promptEl.addEventListener('input',resize);
+promptEl.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send()}});
 $('#newChat').onclick=newChat;$('#menuBtn').onclick=()=>$('#sidebar').classList.toggle('open');
-$('#settingsBtn').onclick=()=>{$('#endpoint').value=settings.endpoint;$('#model').value=settings.model;$('#apiKey').value=settings.apiKey;$('#persona').value=settings.persona;$('#settings').classList.add('open')};
+$('#settingsBtn').onclick=()=>{$('#model').value=settings.model||'';$('#persona').value=settings.persona||defaultSettings.persona;$('#settings').classList.add('open')};
 $('#closeSettings').onclick=()=>$('#settings').classList.remove('open');
-$('#saveSettings').onclick=()=>{settings={endpoint:$('#endpoint').value.trim(),model:$('#model').value.trim(),apiKey:$('#apiKey').value.trim(),persona:$('#persona').value.trim()};localStorage.setItem('ghostSettings',JSON.stringify(settings));$('#settings').classList.remove('open');$('#statusText').textContent=settings.endpoint?'ИИ настроен':'демо-режим'};
+$('#saveSettings').onclick=()=>{settings={model:$('#model').value.trim(),persona:$('#persona').value.trim()||defaultSettings.persona};try{localStorage.setItem('ghostSettings',JSON.stringify(settings))}catch{}$('#settings').classList.remove('open');$('#statusText').textContent='настройки сохранены'};
 $('#settings').addEventListener('click',e=>{if(e.target===$('#settings'))$('#settings').classList.remove('open')});
-document.querySelectorAll('[data-prompt]').forEach(b=>b.onclick=()=>{promptEl.value=b.dataset.prompt;resize();send(b.dataset.prompt)});
-try{chats=JSON.parse(localStorage.getItem('ghostChats')||'[]')}catch{chats=[]}if(chats.length)currentId=chats[0].id;else{chats=[];currentId=null}renderAll();
-if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+document.querySelectorAll('[data-prompt]').forEach(b=>b.onclick=()=>send(b.dataset.prompt));
+try{const stored=JSON.parse(localStorage.getItem('ghostChats')||'[]');chats=Array.isArray(stored)?stored.filter(c=>c&&typeof c.id==='string'&&Array.isArray(c.messages)):[]}catch{chats=[]}
+if(chats.length)currentId=chats[0].id;
+renderAll();
 </script>
 </body>
 </html>
